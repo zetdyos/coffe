@@ -1,0 +1,10 @@
+sites/*/settings*.php
+sites/default/settings.php
+sites/all/default/settings.php
+sites/default/files/
+sites/default/files/*
+sites/default/files/*/
+/nbproject/private/
+/nbproject
+/modules/schedule/nbproject/private/
+.idea/
