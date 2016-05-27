@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/CoffeBar.iml" filepath="$PROJECT_DIR$/.idea/CoffeBar.iml" />
+      <module fileurl="file://D:/Install/Development/PROGRAMMING TOOL/Blog Django/django-fluent-comments-master/example/.idea/example.iml" filepath="D:/Install/Development/PROGRAMMING TOOL/Blog Django/django-fluent-comments-master/example/.idea/example.iml" />
+    </modules>
+  </component>
+</project>
+

@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+
+{% block headtitle %}Home{% endblock %}
+
+{% block head_styles %}
+    <link rel="stylesheet" href="{% static 'Nivo-Slider/nivo-slider.css' %}" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="{% static 'Nivo-Slider/themes/default/default.css' %}" type="text/css" media="screen"/>
+{% endblock %}
+
+<!--Gallery-->
+{% block base_gallery %}
+    <div class="container">
+    <!-- portfolio -->
+    <div class="worksmain">
+        <div class="section group">
+            <div class="slider-wrapper theme-default">
+                <div id="slider" class="nivoSlider">
+                    <img src="{% static 'Nivo-Slider/demo/images/toystory.jpg' %}"
+                         data-thumb="{% static 'Nivo-Slider/demo/images/toystory.jpg' %}" alt=""/>
+                    <a href="http://dev7studios.com"><img
+                            src="{% static 'Nivo-Slider/demo/images/up.jpg' %}"
+                            data-thumb="{% static 'Nivo-Slider/demo/images/up.jpg' %}"
+                            alt=""
+                            title="This is an example of a caption"/></a>
+                    <img src="{% static 'Nivo-Slider/demo/images/walle.jpg' %}"
+                         data-thumb="{% static 'Nivo-Slider/demo/images/walle.jpg' %}" alt=""
+                         data-transition="slideInLeft"/>
+                    <img src="{% static 'Nivo-Slider/demo/images/nemo.jpg' %}"
+                         data-thumb="{% static 'Nivo-Slider/demo/images/nemo.jpg' %}" alt=""
+                         title="#htmlcaption"/>
+                </div>
+                <div id="htmlcaption" class="nivo-html-caption">
+                    <h3>Morbi molestie dolor vel commodo</h3>
+
+                    <p>Mentum mauris. orbi vulputate ultrices semper. Phasellus ultricies elit et orcidunt
+                        est
+                        congue tortor vehicul acilisis purus in malesuada purus lacin</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+{% endblock %}
+
+<!--//End-Gallery-->
+{% block body_scripts %}
+    <script type="text/javascript" src="{% static 'Nivo-Slider/jquery.nivo.slider.js' %}"></script>
+    <script type="text/javascript">
+        $(window).load(function () {
+            $('#slider').nivoSlider();
+        });
+    </script>
+{% endblock %}
+{% block content %}
+    <!-- anean -->
+    <div class="anean-bottom">
+        <div class="container">
+            <div class="col-md-6">
+                <div class="anean-1">
+                    <div class="anean-left">
+                        <img src="{% static 'main/images/img9.jpg' %}" class="img-responsive" alt=""/>
+                    </div>
+                    <div class="anean-right">
+                        <h4>Aenean non miac</h4>
+                        <span>- Nunce element</span>
+
+                        <p>Osteger non semper nunc. Nam lacus diam, dignissim eu lobortis sit amet, ultrices sit . </p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="anean-1">
+                    <div class="anean-left">
+                        <img src="{% static 'main/images/img10.jpg' %}" class="img-responsive" alt=""/>
+                    </div>
+                    <div class="anean-right">
+                        <h4>Civamus et diam sed </h4>
+                        <span>- Pharetra sit amet</span>
+
+                        <p>Teger non semper nunc. Nam lacus diam, dignissim eu lobortis sit amet, ultrices sit . </p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="anean-1">
+                    <div class="anean-left">
+                        <img src="{% static 'main/images/img7.jpg' %}" class="img-responsive" alt=""/>
+                    </div>
+                    <div class="anean-right">
+                        <h4>Morbi ac molestie</h4>
+                        <span>-Tincidunt fermen</span>
+
+                        <p>Josteger non semper nunc. Nam lacus diam, dignissim eu lobortis sit amet, ultrices sit . </p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="col-md-3 maece">
+                <h4>Maecenas a hendrerit</h4>
+                <ul>
+                    <li><a href="#"><span> </span>Nam at urna quis lacus utre </a></li>
+                    <li><a href="#"><span> </span>Posuere justo velitet laotinoc </a></li>
+                    <li><a href="#"><span> </span>Donec egestas diam sed odioti</a></li>
+                    <li><a href="#"><span> </span>Integer eu nibh vitae massa</a></li>
+                    <li><a href="#"><span> </span>Cras vehicula nunc sed umb</a></li>
+                    <li><a href="#"><span> </span>Quisque non risus dui, vel pos</a></li>
+                    <li><a href="#"><span> </span>Aenean nec diam libero, sum</a></li>
+                    <li><a href="#"><span> </span>Donec egestas diam sed odioti</a></li>
+                    <li><a href="#"><span> </span>Integer eu nibh vitae massa</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <div class="anean-1">
+                    <div class="anean-left">
+                        <img src="{% static 'main/images/img8.jpg' %}" class="img-responsive" alt=""/>
+                    </div>
+                    <div class="anean-right">
+                        <h4>Siooni</h4>
+
+                        <p>Osteger non semper nunc. Nam lacus diam, dignissim </p>
+                    </div>
+                    <div class="clearfix"></div>
+                    <p>Donec faucibus sem a dolor condimentum, eget commodo lacus vehicula ellentesque id mauris
+                        vehicula, porttitor augue vitae, elementum.</p>
+
+                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+                        voluptatu</p>
+                    <a href="#" class="more">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
