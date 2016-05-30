@@ -16,8 +16,10 @@ urlpatterns = [
     #url(r'^comments/', include('django_comments.urls')),
     url(r'^comments/', include('fluent_comments.urls')),
     url(r'^articles/', include('article.urls'), name='blog'),
-
+    url(r'^event/', include('event.urls'), name='event'),
+    url(r'^product/', include('product.urls'), name='product'),
     url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT, }),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
     url(r'^contact/', include('contact_form.urls')),
+    url(r'^gallery/', include('coffegallery.urls')),
 ]

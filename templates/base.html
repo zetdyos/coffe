@@ -76,19 +76,21 @@
                         <a href="/"><img src="{% static 'main/images/logo.png' %}" class="img-responsive" alt=""/></a>
                     </div>
                     <div class="hader-left">
-                        <h1><a href="/">SFC</a></h1>
+                        <h1 class="SFC"><a href="">SFC</a></h1>
                     </div>
                     <div class="head-nav">
                         <span class="menu"> </span>
                         <ul class="cl-effect-3">
                             <li class=" {% block linkstory %}{% endblock %}"><a href="">Our Story</a></li>
-                            <li class=" {% block linkcoffe %}{% endblock %}"><a href="">Coffe</a></li>
+                            <li class=" {% block linkcoffe %}{% endblock %}"><a
+                                    href="{% url 'product-list' %}">Coffe</a></li>
                             <li class=" {% block linkblog %}{% endblock %}"><a href="{% url 'article-list' %}">Blog</a>
                             </li>
                             <li class=" {% block linklocations %}{% endblock %}"><a href="">Locations</a></li>
                             <li class=" {% block linkcontact %}{% endblock %}"><a href="{% url 'contact_form' %}">Contact
                                 Us</a></li>
-                            <li class=" {% block linkgallery %}{% endblock %}"><a href="">Gallery</a></li>
+                            <li class=" {% block linkgallery %}{% endblock %}"><a
+                                    href="{% url 'album-list' %}">Gallery</a></li>
                             <div class="clearfix"></div>
                         </ul>
                     </div>
@@ -107,6 +109,7 @@
             {% block base_gallery %}{% endblock %}
 
         </div>
+
     {% endblock %}
 </section>
 <!-- header -->
@@ -128,9 +131,6 @@
 <!-- footer -->
 
 <script src="{% static 'main/js/bootstrap.js' %}"></script>
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-{#<script src="{% static 'blog/js/ie10-viewport-bug-workaround.js' %}"></script>#}
-
 {% block body_scripts %}{% endblock %}
 </body>
 </html>

@@ -1,0 +1,27 @@
+{#{% extends "base.html" %}#}
+{#{% block headtitle %}{{ photo.title }}{% endblock %}#}
+{#{% block linkgallery %}active{% endblock %}#}
+{#{% block content %}#}
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'main/css/bootstrap.css' %}">
+<link href="{% static 'main/css/style.css' %}" rel="stylesheet" type="text/css" media="all"/>
+<div class="single">
+    <div class="single-top">
+        <div class="text-in">
+            <div class="single-men">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="{{ photo.original_image.url }}" class="img-responsive" alt="{{ photo.title }}">
+                    </div>
+                    <div class="col-md-8">
+                        <h5>{{ photo.title }}</h5>
+                        {% autoescape off %}
+                            {{ photo.description|linebreaks }}
+                        {% endautoescape %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{#{% endblock %}#}

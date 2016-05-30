@@ -38,8 +38,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    'main',
-    'article',
 )
 
 INSTALLED_APPS += (
@@ -49,6 +47,14 @@ INSTALLED_APPS += (
     'ckeditor',
     'ckeditor_uploader',
     'contact_form',
+    'simplemathcaptcha',
+    'main',
+    'article',
+    'event',
+    'product',
+    'imagekit',
+    'coffegallery',
+
 
 )
 
@@ -96,9 +102,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'coffebar',
-        'USER': 'root',
+        'USER': 'django',
         'PASSWORD': '',
-        'HOST': 'localhost',
+        'HOST': 'marilus',
         'PORT': '',
     }
 }
@@ -106,7 +112,7 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
-LANGUAGE_CODE = 'es'
+LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
@@ -149,7 +155,7 @@ FLUENT_COMMENTS_CLOSE_AFTER_DAYS = 60
 FLUENT_COMMENTS_AKISMET_ACTION = 'moderate'
 
 AKISMET_API_KEY = None  # Add your Akismet key here to enable Akismet support
-AKISMET_IS_TEST = True  # for development/example apps.
+AKISMET_IS_TEST = False  # for development/example apps.
 
 # ckeditor settings
 CKEDITOR_ALLOW_NONIMAGE_FILES = False
@@ -179,13 +185,12 @@ CKEDITOR_CONFIGS = {
         ),
     }
 }
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+DEFAULT_FROM_EMAIL = 'contact@example.com',
+MANAGERS = [('Manager', 'noreply@example.com')]
 
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'laike9m@gmail.com'  # this is my email address, use yours
-EMAIL_HOST_PASSWORD = 'abcd'   # set environ yourself
-
-ADMINS = (
-    ('your_name', 'your_email'),   # email will be sent to your_email
-)
+#EMAIL_USE_TLS = False
+#EMAIL_HOST = 'localhost'
+#EMAIL_PORT = 25
+#EMAIL_HOST_USER = 'laike9m@gmail.com'  # this is my email address, use yours
+#EMAIL_HOST_PASSWORD = 'abcd'   # set environ yourself

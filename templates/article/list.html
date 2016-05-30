@@ -6,33 +6,53 @@
     <div class="specials">
         <h3>Blogs</h3>
         {% if object_list %}
-            {% for article in object_list %}
-                {% if forloop.first or forloop.counter|divisibleby:"5" %}
-                    <div class="special-top">
-                {% endif %}
-            {% get_comment_count for article as comments_count %}
-            <div class="col-md-3 special-in">
-                <a href="{{ article.get_absolute_url }}"><img src="{{ article.image.url }}"
-                                                              class="img-responsive" alt="">
+            <div class="special-top">
+                {% for article in object_list %}
 
-                </a>
-                <h5><a href="{{ article.get_absolute_url }}">{{ article }} ({{ comments_count }} comments)</a></h5>
+                    {% get_comment_count for article as comments_count %}
+                    <div class="col-md-3 special-in">
+                        <a href="{{ article.get_absolute_url }}"><img src="{{ article.image.url }}"
+                                                                      class="img-responsive" alt="">
 
-                <h4>{% trans "Posted on: " %}{{ article.publication_date|date:"DATE_FORMAT" }}{% if article.author %} by
-                    {{ article.author|authordisplay }}{% endif %}</h4>
-                {% autoescape off %}
-                    <p>{{ article.content|truncatewords_html:26 }} <a href="{{ article.get_absolute_url }}"
-                                                                      class="more">More...</a>
-                    </p>
-                {% endautoescape %}
-            </div>
-            {% if forloop.counter|divisibleby:"4" or forloop.last %}
+                        </a>
+                        <h5><a href="{{ article.get_absolute_url }}">{{ article }} ({{ comments_count }} comments)</a>
+                        </h5>
+
+                        <h4>{% trans "Posted on: " %}{{ article.publication_date|date:"DATE_FORMAT" }}
+                            {% if article.author %} by
+                                {{ article.author|authordisplay }}{% endif %}</h4>
+                        {% autoescape off %}
+                            <p>{{ article.content|truncatewords_html:26 }} <a href="{{ article.get_absolute_url }}"
+                                                                              class="more">More...</a>
+                            </p>
+                        {% endautoescape %}
+                    </div>
+
+                {% endfor %}
                 <div class="clearfix"></div>
-                </div>
-            {% endif %}
-            {% endfor %}
+            </div>
+
         {% else %}
             <p>No articles posted in this blog</p>
+        {% endif %}
+    </div>
+    <div class="center">
+        {% if is_paginated %}
+            <ul class="pagination">
+                {% if page_obj.has_previous %}
+                    <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+                {% endif %}
+
+                {% for i in paginator.page_range %}
+                    <li {% if page_obj.number == i %} class="active" {% endif %}>
+                        <a href="?page={{ i }}">{{ i }}</a>
+                    </li>
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+                    <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+                {% endif %}
+            </ul>
         {% endif %}
     </div>
 {% endblock %}

@@ -1,0 +1,16 @@
+<dl id="comments">
+    <div class="panel panel-default">
+        {% for comment in comment_list %}
+            <dt id="c{{ comment.id }}">
+                {{ comment.submit_date }} - {{ comment.name }}
+            </dt>
+            {#    <dd>#}
+            {#      <p>{{ comment.comment }}</p>#}
+            {#    </dd>#}
+
+            <ul class="list-group">
+                <li class="list-group-item"><p>{{ comment.comment }}</p></li>
+            </ul>
+        {% endfor %}
+    </div>
+</dl>

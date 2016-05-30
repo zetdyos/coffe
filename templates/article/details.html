@@ -22,6 +22,7 @@
                         {{ article.publication_date|date:"DATE_FORMAT" }}{% if article.author %} by
                             {{ article.author|authordisplay }}{% endif %}</h4>
 
+                    <div class="border"></div>
                     {% autoescape off %}
                         {{ article.content|linebreaks }}
                     {% endautoescape %}
@@ -29,16 +30,20 @@
                     {% get_comment_count for article as comments_count %}
 
                     <div id="comments-wrapper">
+                        <h3 class="has-comments-title">
+                            {% blocktrans with entry_title=article.title count comments_count=comments_count %}
+                                Comment ({{ comments_count }}) {% plural %}
+                                Comments ({{ comments_count }}){% endblocktrans %}</h3>
+
+                        <div class="border"></div>
                         {% if comments_count %}
-                            <h3 class="has-comments-title">
-                                {% blocktrans with entry_title=article.title count comments_count=comments_count %}
-                                    Comment ({{ comments_count }}) {% plural %}
-                                    Comments ({{ comments_count }}){% endblocktrans %}</h3>
-                            <div class="border"></div>
                             {% render_comment_list for object %}
 
                             {% if not article|comments_are_open %}
                                 <p class="comments-closed">{% trans "Comments are closed." %}</p>
+                            {% else %}
+                                <h3 class="no-comments-title">{% trans "Leave Your Opinion" %}</h3>
+                                <div class="border"></div>
                             {% endif %}
                         {% else %}
                             {# no comments yet, invite #}

@@ -12,6 +12,8 @@ from django.utils.translation import ugettext_lazy as _
 from django.core.mail import send_mail
 from django.template import RequestContext, loader
 
+from simplemathcaptcha.fields import MathCaptchaField
+
 
 class ContactForm(forms.Form):
     """
@@ -32,7 +34,9 @@ class ContactForm(forms.Form):
 
     subject_template_name = "contact_form/contact_form_subject.txt"
 
-    template_name = 'contact_form/contact_form.txt'
+    template_name = 'contact_form/contact_form'
+
+    captcha = MathCaptchaField()
 
     def __init__(self, data=None, files=None, request=None,
                  recipient_list=None, *args, **kwargs):

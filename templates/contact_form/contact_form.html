@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block linkcontact %}active{% endblock %}
-{% block headtitle %}Contact{% endblock %}
+{% block headtitle %}Contact Us{% endblock %}
 
 {% block content %}
     <div class="container">
@@ -11,22 +11,11 @@
 
                 <div class=" col-md-9 contact-left">
 
-                    <form method="post">
+                    <form role="form" method="post">
                         {% csrf_token %}
+                        {{ form.as_p }}
                         <div>
-                            <span>Name</span>
-                            <input name="name" type="text" class="textbox">
-                        </div>
-                        <div>
-                            <span>E-Mail</span>
-                            <input name="email" type="text" class="textbox">
-                        </div>
-                        <div>
-                            <span>Subject</span>
-                            <textarea name="body" rows="10" cols="50"> </textarea>
-                        </div>
-                        <div>
-                            <span><input type="submit" value="Submit"></span>
+                            <span><input type="submit" value="SEND"></span>
                         </div>
                     </form>
                 </div>
@@ -57,6 +46,7 @@
         </div>
     </div>
     <!---->
+
 {% endblock %}
 
 
