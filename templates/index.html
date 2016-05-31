@@ -2,6 +2,10 @@
 {% load staticfiles %}
 
 
+
+
+
+
 {% block headtitle %}Home{% endblock %}
 
 {% block head_styles %}
@@ -17,27 +21,14 @@
             <div class="section group">
                 <div class="slider-wrapper theme-default">
                     <div id="slider" class="nivoSlider">
-                        <img src="{% static 'Nivo-Slider/demo/images/toystory.jpg' %}"
-                             data-thumb="{% static 'Nivo-Slider/demo/images/toystory.jpg' %}" alt=""/>
-                        <a href="http://dev7studios.com"><img
-                                src="{% static 'Nivo-Slider/demo/images/up.jpg' %}"
-                                data-thumb="{% static 'Nivo-Slider/demo/images/up.jpg' %}"
-                                alt=""
-                                title="This is an example of a caption"/></a>
-                        <img src="{% static 'Nivo-Slider/demo/images/walle.jpg' %}"
-                             data-thumb="{% static 'Nivo-Slider/demo/images/walle.jpg' %}" alt=""
-                             data-transition="slideInLeft"/>
-                        <img src="{% static 'Nivo-Slider/demo/images/nemo.jpg' %}"
-                             data-thumb="{% static 'Nivo-Slider/demo/images/nemo.jpg' %}" alt=""
-                             title="#htmlcaption"/>
-                    </div>
-                    <div id="htmlcaption" class="nivo-html-caption">
-                        <h3>Morbi molestie dolor vel commodo</h3>
+                        {% for photo_album in photos %}
 
-                        <p>Mentum mauris. orbi vulputate ultrices semper. Phasellus ultricies elit et orcidunt
-                            est
-                            congue tortor vehicul acilisis purus in malesuada purus lacin</p>
+                            <img src="{{ photo_album.thumbnail_slider.url }}"
+                                 data-thumb="{{ photo_album.thumbnail_slider.url }}" alt=""
+                                 title="{{ photo_album.description }}"/>
+                        {% endfor %}
                     </div>
+
                 </div>
             </div>
 
@@ -111,7 +102,7 @@
 
                         <a href="{{ event.get_absolute_url }}" class="more">Read More</a>
                     {% else %}
-                        <p>There is no available event. </p>
+                        <p>There is no available event.</p>
 
                     {% endif %}
 

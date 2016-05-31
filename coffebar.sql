@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-05-2016 a las 10:45:19
+-- Tiempo de generación: 31-05-2016 a las 09:44:20
 -- Versión del servidor: 5.6.21
 -- Versión de PHP: 5.6.3
 
@@ -226,7 +226,7 @@ CREATE TABLE IF NOT EXISTS `auth_user` (
 --
 
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
-(2, 'pbkdf2_sha256$20000$COctIerH9nQj$ZS8s3xdOoCk6RFPzAvMU0vy+tHtpBau0p4FXaL9xQ50=', '2016-05-29 22:51:37', 1, 'admin', 'Erodis', 'Perez Michel', 'eperezm1986@molanco.com', 1, 1, '2016-05-12 05:55:55');
+(2, 'pbkdf2_sha256$20000$COctIerH9nQj$ZS8s3xdOoCk6RFPzAvMU0vy+tHtpBau0p4FXaL9xQ50=', '2016-05-31 06:32:00', 1, 'admin', 'Erodis', 'Perez Michel', 'eperezm1986@molanco.com', 1, 1, '2016-05-12 05:55:55');
 
 -- --------------------------------------------------------
 
@@ -263,14 +263,15 @@ CREATE TABLE IF NOT EXISTS `coffegallery_coffealbum` (
   `title` varchar(50) NOT NULL,
   `description` longtext,
   `enable_album` tinyint(1) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `coffegallery_coffealbum`
 --
 
 INSERT INTO `coffegallery_coffealbum` (`id`, `title`, `description`, `enable_album`) VALUES
-(1, 'Navidad 2016', 'Feliz dia que joder tios.', 1);
+(1, 'Navidad 2016', 'Feliz dia que joder tios.', 1),
+(2, 'Navidad 2015', 'El albun del año pasado joder', 0);
 
 -- --------------------------------------------------------
 
@@ -284,18 +285,19 @@ CREATE TABLE IF NOT EXISTS `coffegallery_photo` (
   `description` varchar(255) NOT NULL,
   `original_image` varchar(100) NOT NULL,
   `album_id` int(11)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `coffegallery_photo`
 --
 
 INSERT INTO `coffegallery_photo` (`id`, `title`, `description`, `original_image`, `album_id`) VALUES
-(2, 'Caffe con aroma de mujer', 'mejor cafe cubano del alto oriente', 'galleries/2016/05/30/img3.jpg', 1),
-(3, 'Lorem Ipsum is simply dummy text', '', 'galleries/2016/05/30/img2.jpg', 1),
-(4, 'Fluents', '', 'galleries/2016/05/30/img3_vI7LdB5.jpg', 1),
-(5, 'Caffe amargo', '', 'galleries/2016/05/30/img4.jpg', 1),
-(6, 'Coffe en polvo', '', 'galleries/2016/05/30/img5.jpg', 1);
+(2, 'Caffe con aroma de mujer', 'mejor cafe cubano del alto oriente', 'galleries/2016/05/31/img2.jpg', 1),
+(3, 'Lorem Ipsum is simply dummy text', 'Lorem Ipsum is simply dummy text', 'galleries/2016/05/31/img6.jpg', 1),
+(4, 'Fluents', 'Fluents', 'galleries/2016/05/31/img5.jpg', 1),
+(5, 'Caffe amargo', 'Caffe amargo', 'galleries/2016/05/31/img1.jpg', 1),
+(6, 'Coffe en polvo', 'Coffe en polvo', 'galleries/2016/05/31/img4.jpg', 1),
+(7, 'Cappuccino seco', 'Cappuccino seco', 'galleries/2016/05/31/img3.jpg', 2);
 
 -- --------------------------------------------------------
 
@@ -316,8 +318,8 @@ CREATE TABLE IF NOT EXISTS `coffegallery_youtubevideo` (
 --
 
 INSERT INTO `coffegallery_youtubevideo` (`id`, `title`, `embed_code`, `thumbnail`, `album_id`) VALUES
-(1, 'Que Fieston tios', 'dsfghhjkl', 'galleries/video/2016/05/30/thumbnail/img9.jpg', 1),
-(2, 'Cappuccino', 'Cappuccino', 'galleries/video/2016/05/30/thumbnail/1.jpg', 1);
+(1, 'Que Fieston tios', 'https://www.youtube.com/watch?v=rp5pWvSjNhw', 'galleries/video/2016/05/30/thumbnail/img9.jpg', 1),
+(2, 'Cappuccino', 'https://www.youtube.com/watch?v=aBLYSO0DSVI', 'galleries/video/2016/05/30/thumbnail/1.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -334,7 +336,7 @@ CREATE TABLE IF NOT EXISTS `django_admin_log` (
   `change_message` longtext NOT NULL,
   `content_type_id` int(11) DEFAULT NULL,
   `user_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=96 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=126 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `django_admin_log`
@@ -435,7 +437,37 @@ INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`,
 (92, '2016-05-30 06:54:46', '1', 'Django administration', 2, 'Changed title.', 30, 2),
 (93, '2016-05-30 07:01:02', '10', 'EL SISTEMA DE PLANTILLAS', 1, '', 29, 2),
 (94, '2016-05-30 07:15:47', '1', 'Que Fieston tios', 2, 'Changed thumbnail.', 31, 2),
-(95, '2016-05-30 07:44:45', '2', 'Cappuccino', 1, '', 31, 2);
+(95, '2016-05-30 07:44:45', '2', 'Cappuccino', 1, '', 31, 2),
+(96, '2016-05-31 04:03:35', '5', 'Caffe amargo', 2, 'Changed description.', 32, 2),
+(97, '2016-05-31 04:03:40', '2', 'Caffe con aroma de mujer', 2, 'No fields changed.', 32, 2),
+(98, '2016-05-31 04:03:48', '6', 'Coffe en polvo', 2, 'Changed description.', 32, 2),
+(99, '2016-05-31 04:03:56', '4', 'Fluents', 2, 'Changed description.', 32, 2),
+(100, '2016-05-31 04:04:05', '3', 'Lorem Ipsum is simply dummy text', 2, 'Changed description.', 32, 2),
+(101, '2016-05-31 04:14:29', '2', 'Cappuccino', 2, 'Changed embed_code.', 31, 2),
+(102, '2016-05-31 04:14:41', '1', 'Que Fieston tios', 2, 'Changed embed_code.', 31, 2),
+(103, '2016-05-31 04:46:53', '2', 'Cappuccino', 2, 'Changed embed_code.', 31, 2),
+(104, '2016-05-31 04:47:15', '1', 'Que Fieston tios', 2, 'Changed embed_code.', 31, 2),
+(105, '2016-05-31 05:16:08', '2', 'Navidad 2015', 1, '', 34, 2),
+(106, '2016-05-31 05:19:53', '7', 'Cappuccino seco', 1, '', 32, 2),
+(107, '2016-05-31 05:38:08', '2', 'Navidad 2015', 2, 'Changed enable_album.', 34, 2),
+(108, '2016-05-31 05:38:13', '2', 'Navidad 2015', 2, 'Changed enable_album.', 34, 2),
+(109, '2016-05-31 05:43:02', '2', 'Navidad 2015', 2, 'Changed enable_album.', 34, 2),
+(110, '2016-05-31 05:43:15', '2', 'Navidad 2015', 2, 'Changed enable_album.', 34, 2),
+(111, '2016-05-31 05:45:11', '1', 'Navidad 2016', 2, 'Changed enable_album.', 34, 2),
+(112, '2016-05-31 05:47:06', '2', 'Navidad 2015', 2, 'Changed enable_album.', 34, 2),
+(113, '2016-05-31 05:50:38', '1', 'Navidad 2016', 2, 'Changed enable_album.', 34, 2),
+(114, '2016-05-31 05:51:19', '2', 'Navidad 2015', 2, 'Changed enable_album.', 34, 2),
+(115, '2016-05-31 05:54:22', '1', 'Navidad 2016', 2, 'Changed enable_album.', 34, 2),
+(116, '2016-05-31 06:30:54', '2', 'Navidad 2015', 2, 'Changed enable_album.', 34, 2),
+(117, '2016-05-31 06:31:04', '1', 'Navidad 2016', 2, 'Changed enable_album.', 34, 2),
+(118, '2016-05-31 06:32:41', '2', 'Cappuccino', 2, 'No fields changed.', 31, 2),
+(119, '2016-05-31 07:12:02', '5', 'Caffe amargo', 2, 'Changed original_image.', 32, 2),
+(120, '2016-05-31 07:12:07', '5', 'Caffe amargo', 2, 'No fields changed.', 32, 2),
+(121, '2016-05-31 07:12:28', '2', 'Caffe con aroma de mujer', 2, 'Changed original_image.', 32, 2),
+(122, '2016-05-31 07:12:56', '7', 'Cappuccino seco', 2, 'Changed original_image.', 32, 2),
+(123, '2016-05-31 07:13:06', '6', 'Coffe en polvo', 2, 'Changed original_image.', 32, 2),
+(124, '2016-05-31 07:13:21', '4', 'Fluents', 2, 'Changed original_image.', 32, 2),
+(125, '2016-05-31 07:13:35', '3', 'Lorem Ipsum is simply dummy text', 2, 'Changed original_image.', 32, 2);
 
 -- --------------------------------------------------------
 
@@ -555,7 +587,7 @@ CREATE TABLE IF NOT EXISTS `django_migrations` (
   `app` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `applied` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `django_migrations`
@@ -595,7 +627,9 @@ INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
 (34, 'coffegallery', '0002_auto_20160530_0023', '2016-05-30 04:23:31'),
 (35, 'coffegallery', '0003_auto_20160530_0025', '2016-05-30 04:25:26'),
 (36, 'event', '0002_auto_20160530_0107', '2016-05-30 05:09:04'),
-(37, 'product', '0001_initial', '2016-05-30 05:09:05');
+(37, 'product', '0001_initial', '2016-05-30 05:09:05'),
+(38, 'coffegallery', '0004_auto_20160530_2220', '2016-05-31 02:20:33'),
+(39, 'coffegallery', '0005_auto_20160531_0309', '2016-05-31 07:10:11');
 
 -- --------------------------------------------------------
 
@@ -616,10 +650,10 @@ CREATE TABLE IF NOT EXISTS `django_session` (
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('2diwxhn1yb2frgld6t633nbctposwm9m', 'OTRkNzU1ZjdjMzIyMGFkMTAxMTIzN2FkZjFjMjFlNjdlZGM5MzlkNjp7Il9hdXRoX3VzZXJfaGFzaCI6IjYwOTM5NDllMTFjMDVmZjI4YzZhYzYzMmQyNDhmODhkNDEyMWM2NDAiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIyIn0=', '2016-06-11 07:10:50'),
 ('c5an61s54riycc2lbii8wctdy6essdhu', 'OTRkNzU1ZjdjMzIyMGFkMTAxMTIzN2FkZjFjMjFlNjdlZGM5MzlkNjp7Il9hdXRoX3VzZXJfaGFzaCI6IjYwOTM5NDllMTFjMDVmZjI4YzZhYzYzMmQyNDhmODhkNDEyMWM2NDAiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIyIn0=', '2016-06-08 04:27:44'),
-('c766mcc03zslw06hzy83f4fh1dpgit4j', 'OTRkNzU1ZjdjMzIyMGFkMTAxMTIzN2FkZjFjMjFlNjdlZGM5MzlkNjp7Il9hdXRoX3VzZXJfaGFzaCI6IjYwOTM5NDllMTFjMDVmZjI4YzZhYzYzMmQyNDhmODhkNDEyMWM2NDAiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIyIn0=', '2016-06-12 22:51:37'),
 ('g3py61f2kn4svojwkflx4nwd2zk8f7xi', 'OTRkNzU1ZjdjMzIyMGFkMTAxMTIzN2FkZjFjMjFlNjdlZGM5MzlkNjp7Il9hdXRoX3VzZXJfaGFzaCI6IjYwOTM5NDllMTFjMDVmZjI4YzZhYzYzMmQyNDhmODhkNDEyMWM2NDAiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIyIn0=', '2016-06-12 21:26:06'),
 ('o6kkmo4zejbyl3sz2c1qitbxrko9tanw', 'OTRkNzU1ZjdjMzIyMGFkMTAxMTIzN2FkZjFjMjFlNjdlZGM5MzlkNjp7Il9hdXRoX3VzZXJfaGFzaCI6IjYwOTM5NDllMTFjMDVmZjI4YzZhYzYzMmQyNDhmODhkNDEyMWM2NDAiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIyIn0=', '2016-06-08 03:39:39'),
-('y6mljw2a69v2iujtw29sxywmnbgc7q0i', 'OTRkNzU1ZjdjMzIyMGFkMTAxMTIzN2FkZjFjMjFlNjdlZGM5MzlkNjp7Il9hdXRoX3VzZXJfaGFzaCI6IjYwOTM5NDllMTFjMDVmZjI4YzZhYzYzMmQyNDhmODhkNDEyMWM2NDAiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIyIn0=', '2016-06-05 01:35:45');
+('y6mljw2a69v2iujtw29sxywmnbgc7q0i', 'OTRkNzU1ZjdjMzIyMGFkMTAxMTIzN2FkZjFjMjFlNjdlZGM5MzlkNjp7Il9hdXRoX3VzZXJfaGFzaCI6IjYwOTM5NDllMTFjMDVmZjI4YzZhYzYzMmQyNDhmODhkNDEyMWM2NDAiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIyIn0=', '2016-06-05 01:35:45'),
+('ylqr3b0vazixdg3j5rwfahge78uea7gw', 'OTRkNzU1ZjdjMzIyMGFkMTAxMTIzN2FkZjFjMjFlNjdlZGM5MzlkNjp7Il9hdXRoX3VzZXJfaGFzaCI6IjYwOTM5NDllMTFjMDVmZjI4YzZhYzYzMmQyNDhmODhkNDEyMWM2NDAiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIyIn0=', '2016-06-14 06:32:00');
 
 -- --------------------------------------------------------
 
@@ -854,12 +888,12 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT de la tabla `coffegallery_coffealbum`
 --
 ALTER TABLE `coffegallery_coffealbum`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `coffegallery_photo`
 --
 ALTER TABLE `coffegallery_photo`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT de la tabla `coffegallery_youtubevideo`
 --
@@ -869,7 +903,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 -- AUTO_INCREMENT de la tabla `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=96;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=126;
 --
 -- AUTO_INCREMENT de la tabla `django_comments`
 --
@@ -889,7 +923,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=36;
 -- AUTO_INCREMENT de la tabla `django_migrations`
 --
 ALTER TABLE `django_migrations`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=38;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=40;
 --
 -- AUTO_INCREMENT de la tabla `django_site`
 --

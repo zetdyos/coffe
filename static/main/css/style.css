@@ -1027,6 +1027,11 @@ i.goog:hover {
         width: 314px;
     }
 
+    .gallery-box:hover span.rollover2 {
+        height: 216px;
+        width: 314px;
+    }
+
     .banner h3 {
         font-size: 2em;
     }
@@ -1247,6 +1252,11 @@ i.goog:hover {
     }
 
     .gallery-box:hover span.rollover1 {
+        height: 166px;
+        width: 240px;
+    }
+
+    .gallery-box:hover span.rollover2 {
         height: 166px;
         width: 240px;
     }
@@ -1538,6 +1548,11 @@ i.goog:hover {
         width: 198px;
     }
 
+    .gallery-box:hover span.rollover2 {
+        height: 137px;
+        width: 198px;
+    }
+
     a.scroll {
         position: absolute;
         top: -95px;
@@ -1714,6 +1729,12 @@ i.goog:hover {
     }
 
     .gallery-box:hover span.rollover1 {
+        height: 100px;
+        width: 144px;
+        background-size: 23%;
+    }
+
+    .gallery-box:hover span.rollover2 {
         height: 100px;
         width: 144px;
         background-size: 23%;
@@ -1956,6 +1977,11 @@ i.goog:hover {
         height: 63px;
         width: 91px;
     }
+
+    .gallery-box:hover span.rollover2 {
+        height: 63px;
+        width: 91px;
+    }
 }
 
 /* Comments */
@@ -2068,5 +2094,9 @@ div.center {
 }
 
 .anean-right a {
+    color: #bf6459;
+}
+
+.section.group h1 {
     color: #bf6459;
 }

@@ -30,6 +30,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+    'django_admin_bootstrapped',
     'django.contrib.admin',
     'django.contrib.admindocs',
     'django.contrib.auth',
@@ -54,7 +55,7 @@ INSTALLED_APPS += (
     'product',
     'imagekit',
     'coffegallery',
-
+    'bootstrap3',
 
 )
 
@@ -71,6 +72,14 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'Coffebar.urls'
 
+DAB_FIELD_RENDERER = 'django_admin_bootstrapped.renderers.BootstrapFieldRenderer'
+from django.contrib import messages
+
+MESSAGE_TAGS = {
+    messages.SUCCESS: 'alert-success success',
+    messages.WARNING: 'alert-warning warning',
+    messages.ERROR: 'alert-danger error'
+}
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -86,7 +95,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'django.core.context_processors.media',
                 'django.core.context_processors.static',
-                'django.template.context_processors.request', # Required for django comment next url
+                'django.template.context_processors.request',  # Required for django comment next url
             ],
         },
     },
@@ -159,7 +168,7 @@ AKISMET_IS_TEST = False  # for development/example apps.
 
 # ckeditor settings
 CKEDITOR_ALLOW_NONIMAGE_FILES = False
-#CKEDITOR_JQUERY_URL = 'http://libs.baidu.com/jquery/2.0.3/jquery.min.js'
+# CKEDITOR_JQUERY_URL = 'http://libs.baidu.com/jquery/2.0.3/jquery.min.js'
 CKEDITOR_IMAGE_BACKEND = "pillow"
 CKEDITOR_UPLOAD_SLUGIFY_FILENAME = True
 CKEDITOR_UPLOAD_PATH = "image_upload/"
@@ -189,8 +198,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DEFAULT_FROM_EMAIL = 'contact@example.com',
 MANAGERS = [('Manager', 'noreply@example.com')]
 
-#EMAIL_USE_TLS = False
-#EMAIL_HOST = 'localhost'
-#EMAIL_PORT = 25
-#EMAIL_HOST_USER = 'laike9m@gmail.com'  # this is my email address, use yours
-#EMAIL_HOST_PASSWORD = 'abcd'   # set environ yourself
+# EMAIL_USE_TLS = False
+# EMAIL_HOST = 'localhost'
+# EMAIL_PORT = 25
+# EMAIL_HOST_USER = 'laike9m@gmail.com'  # this is my email address, use yours
+# EMAIL_HOST_PASSWORD = 'abcd'   # set environ yourself
