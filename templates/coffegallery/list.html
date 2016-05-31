@@ -11,7 +11,7 @@
                     <div class="gallery-box">
                         <div id="nivo-lightbox-demo">
                             <a href="{{ photo_album.get_absolute_url }}"
-                               data-lightbox-gallery="gallery1"
+                               data-lightbox-gallery="{{ galleries }}"
                                id="nivo-lightbox-demo"><span
                                     class="rollover1"> </span>
                             </a>
@@ -33,7 +33,7 @@
                     <div class="gallery-box">
                         <div id="nivo-lightbox-demo">
                             <a href="{{ video_album.get_absolute_url }}"
-                               data-lightbox-gallery="gallery1"
+                               data-lightbox-gallery="{{ galleries }}"
                                id="nivo-lightbox-demo"><span
                                     class="rollover2"> </span>
                             </a>
@@ -50,7 +50,7 @@
     <script type="text/javascript" src="{% static 'main/js/nivo-lightbox.min.js' %}"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#nivo-lightbox-demo a').nivoLightbox({ effect: 'fade' });
+            $('#nivo-lightbox-demo a').nivoLightbox({effect: 'fade'});
         });
     </script>
     <!--//End-Gallery-->
