@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% block headtitle %}Gallery{% endblock %}
+{% block linkgallery %}active{% endblock %}
+{% load staticfiles %}
+{% block content %}
+    {% if galleries.photo_set.all %}
+        <div class="worksmain">  
+            <div class="col‐md‐12">
+                <div class="section group">
+                    <h1>Photo Album</h1>
+                    {% for photo_album in galleries.photo_set.all %}
+                        <div class="gallery-box">
+                            <div id="nivo-lightbox-demo">
+                                <a href="{{ photo_album.original_image.url }}"
+                                   data-lightbox-gallery="{{ galleries }}"
+                                   title="{{ photo_album.description }}"
+                                   id="nivo-lightbox-demo"><span
+                                        class="rollover1"> </span>
+                                </a>
+                            </div>
+                            <img src="{% static photo_album.thumbnail.url %}" alt="{{ photo_album.title }}">
+                        </div>
+                    {% endfor %}
+                    <div class="clearfix"></div>
+                </div>
+
+            </div>
+        </div>
+    {% endif %}
+    {% if galleries.youtubevideo_set.all %}
+        <div class="worksmain">   
+            <div class="col‐md‐12">
+                <div class="section group">
+                    <h1>Video Album</h1>
+                    {% for video_album in galleries.youtubevideo_set.all %}
+
+                        <div class="gallery-box">
+                            <div id="nivo-lightbox-demo">
+                                <a href="{{ video_album.embed_code }}"
+                                   title="{{ video_album.title }}"
+                                   data-lightbox-gallery="{{ galleries }}"
+                                   id="nivo-lightbox-demo"><span
+                                        class="rollover2"> </span>
+                                </a>
+                            </div>
+                            <img src="{% static video_album.thumbnail.url %}" alt="{{ video_album.title }}">
+                        </div>
+                    {% endfor %}
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    <!-- portfolio -->
+
+    <script type="text/javascript" src="{% static 'main/js/nivo-lightbox.min.js' %}"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#nivo-lightbox-demo a').nivoLightbox({effect: 'fade'});
+        });
+    </script>
+    <!--//End-Gallery-->
+{% endblock %}

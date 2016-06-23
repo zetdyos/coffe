@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block headtitle %}{{ story.title }}{% endblock %}
+{% block linkstory %}active{% endblock %}
+
+{% block content %}
+    <div class="specials">
+        <h3>{{ story.title }}</h3>
+        <div class="special-top">
+            <div class="row">
+                <div class="col-md-3"><img src="{{ story.sideimage.url }}" class="img-responsive"></div>
+                <div class="col-md-9">
+                    {% autoescape off %}
+                        {{ story.content|linebreaks }}
+                    {% endautoescape %}
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

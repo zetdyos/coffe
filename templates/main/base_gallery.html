@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block base_gallery %}
+    <div class="container">
+        <!-- portfolio -->
+        <div class="worksmain">
+            <div class="section group">
+                <div class="gallery-box">
+                    <div id="nivo-lightbox-demo"><a href="{% static 'main/images/img1.jpg' %}"
+                                                    data-lightbox-gallery="gallery1"
+                                                    id="nivo-lightbox-demo"> <span class="rollover1"> </span></a></div>
+                    <img src="{% static 'main/images/img1.jpg' %}" alt="">
+                </div>
+                <div class="gallery-box">
+                    <div id="nivo-lightbox-demo"><a href="{% static 'main/images/img2.jpg' %}"
+                                                    data-lightbox-gallery="gallery1"
+                                                    id="nivo-lightbox-demo"> <span class="rollover1"> </span></a></div>
+                    <img src="{% static 'main/images/img2.jpg' %}" alt="">
+                </div>
+                <div class="gallery-box">
+                    <div id="nivo-lightbox-demo"><a href="{% static 'main/images/img3.jpg' %}"
+                                                    data-lightbox-gallery="gallery1"
+                                                    id="nivo-lightbox-demo"> <span class="rollover1"> </span></a></div>
+                    <img src="{% static 'main/images/img3.jpg' %}" alt="">
+                </div>
+                <div class="gallery-box">
+                    <div id="nivo-lightbox-demo"><a href="{% static 'main/images/img4.jpg' %}"
+                                                    data-lightbox-gallery="gallery1"
+                                                    id="nivo-lightbox-demo"> <span class="rollover1"> </span></a></div>
+                    <img src="{% static 'main/images/img4.jpg' %}" alt="">
+                </div>
+                <div class="gallery-box">
+                    <div id="nivo-lightbox-demo"><a href="{% static 'main/images/img5.jpg' %}"
+                                                    data-lightbox-gallery="gallery1"
+                                                    id="nivo-lightbox-demo"> <span class="rollover1"> </span></a></div>
+                    <img src="{% static 'main/images/img5.jpg' %}" alt="">
+                </div>
+                <div class="gallery-box">
+                    <div id="nivo-lightbox-demo"><a href="{% static 'main/images/img6.jpg' %}"
+                                                    data-lightbox-gallery="gallery1"
+                                                    id="nivo-lightbox-demo"> <span class="rollover1"> </span></a></div>
+                    <img src="{% static 'main/images/img6.jpg' %}" alt="">
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <script type="text/javascript" src="{% static 'main/js/nivo-lightbox.min.js' %}"></script>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#nivo-lightbox-demo a').nivoLightbox({ effect: 'fade' });
+                });
+            </script>
+        </div>
+        <h3>Morbi molestie dolor vel commodo</h3>
+
+        <p>Mentum mauris. orbi vulputate ultrices semper. Phasellus ultricies elit et orcidunt est congue tortor vehicul
+            acilisis purus in malesuada purus lacin</p>
+    </div>
+    <!--//End-Gallery-->
+    <!-- portfolio -->
+{% endblock %}

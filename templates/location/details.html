@@ -1,0 +1,52 @@
+{% load trans from i18n %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+     <link rel="stylesheet" href="{% static 'main/css/bootstrap.css' %}">
+
+</head>
+<body style="padding-left: 30px;padding-right: 30px;background:  rgba(13, 13, 14, 0.87)">
+<div class="container">
+    <div class="row">
+        <div class="col-md-12" style="padding-left: 0px;padding-right: 0px;color: white"><h2>{{ location.name }}</h2></div>
+        <div class="col-md-6" style="text-align: center">
+          <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>
+<div style='overflow:hidden;height:280px;width:450px;'>
+<div id='gmap_canvas' style='height:280px;width:450px;'>
+</div>
+<div>
+<small>
+<a href="http://embedgooglemaps.com">
+embed google map
+</a>
+</small>
+</div>
+<div><small><a href="https://politicadeprivacidadejemplo.com/">politica de privacidad ejemplo</a></small>
+</div>
+<style>#gmap_canvas img{max-width:none!important;background:none!important}</style>
+</div>
+<script type='text/javascript'>
+function init_map(){
+var myOptions = {zoom:10,center:new google.maps.LatLng(  {{ location.map }}),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng({{ location.map }})});infowindow = new google.maps.InfoWindow({content:'<strong>Título</strong><br>Madrid, Spain<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+        </div>
+        <div class="col-md-6"  style="text-align: left">
+            <div class="col-md-12"> <img src="{{ location.photo.url}}" title="{{ location.name }}" style="border: solid 10px white"/></div>
+            <div class="col-md-12" style="color: white">
+
+                    <p><strong>ADDRESS:</strong>{{ location.address }}</p>
+                    <p><strong>PHONE: </strong>{{ location.phone }}</p>
+                    <p><strong>STORE HOURS: </strong>{{ location.hours }}</p>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

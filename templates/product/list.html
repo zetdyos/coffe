@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load  article_tags %}
+{% block headtitle %}Coffe{% endblock %}
+{% block linkcoffe %}active{% endblock %}
+{% block content %}
+    <div class="specials">
+        <h3>Coffe</h3>
+        {% if object_list %}
+            <div class="special-top">
+                {% for product in object_list %}
+                    <div class="single product-margen">
+                        <div class="single-top">
+                            <div class="text-in">
+                                <div class="single-men">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <img src="{{ product.image.url }}" class="img-responsive" alt="">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <h5>{{ product.title }}</h5>
+                                            <h5>Price: {{ product.price }} MX</h5>
+                                            {% autoescape off %}
+                                                {{ product.description|linebreaks }}
+                                            {% endautoescape %}
+                                            <div style="text-align: right"><a class="more" href="#">Buy</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+                <div class="clearfix"></div>
+            </div>
+
+        {% else %}
+            <p>No articles posted in this blog</p>
+        {% endif %}
+    </div>
+    <div class="center">
+        {% if is_paginated %}
+            <ul class="pagination">
+                {% if page_obj.has_previous %}
+                    <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+                {% endif %}
+
+                {% for i in paginator.page_range %}
+                    <li {% if page_obj.number == i %} class="active" {% endif %}>
+                        <a href="?page={{ i }}">{{ i }}</a>
+                    </li>
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+                    <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+                {% endif %}
+            </ul>
+        {% endif %}
+    </div>
+{% endblock %}
